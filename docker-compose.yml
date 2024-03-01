@@ -1,0 +1,23 @@
+version: '2'
+
+services:
+  php:
+    image: php:7.4-apache
+    container_name: api-transfer-money-php
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - /home/bueno/Projetos/apitransfermoney:/var/www/html/
+    links:
+      - db
+
+  db:
+    image: mysql:latest
+    container_name: api-transfer-money-mysql
+#    ports:
+#      - "3307:3306"
+    volumes:
+      - /var/libs/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=Angelica@1714
