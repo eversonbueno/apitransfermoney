@@ -33,7 +33,7 @@ use Zend\Expressive\MiddlewareFactory;
  * );
  */
 return function (Application $app, MiddlewareFactory $factory, ContainerInterface $container) : void {
-    $app->get('/alive', App\Handler\Http\AliveHandler::class);
-//    $app->post('/wms/products', App\Handler\Http\WmsProductsHandler::class);
-//    $app->get('/api/skeleton', App\Handler\Http\Skeleton\SkeletonHandler::class);
+    $app->get('/', App\Handler\HomePageHandler::class, 'home');
+    $app->get('/alive', TransferMoney2\Api\src\Handler\Http\AliveHandler::class);
+    $app->get('/api/ping', App\Handler\PingHandler::class, 'api.ping');
 };

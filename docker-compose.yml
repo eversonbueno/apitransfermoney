@@ -1,20 +1,20 @@
 version: '2'
 
 services:
-  php:
+  apitransfermoney2_php:
     image: php:7.4-apache
-    container_name: api-transfer-money-php
+    container_name: apitransfermoney2_php
     ports:
-      - "80:80"
-      - "443:443"
+      - "8080:8080"
+#      - "443:443"
     volumes:
-      - /home/bueno/Projetos/apitransfermoney:/var/www/html/
+      - /home/bueno/Projetos/apiTransferMoney2:/var/www/html/
     links:
       - db
 
   db:
     image: mysql:latest
-    container_name: api-transfer-money-mysql
+    container_name: apiTransferMoney2_mysql
 #    ports:
 #      - "3307:3306"
     volumes:
